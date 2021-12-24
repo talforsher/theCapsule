@@ -1,14 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { Button, Form, Message, Segment, Label } from 'semantic-ui-react';
+import { Button, Form, Message, Segment, Label, Checkbox } from 'semantic-ui-react';
 import { Field, reduxForm } from "redux-form";
 import { clearErrors } from "../actions/authActions";
+import CheckboxLabel from './CheckboxLabel/CheckboxLabel';
 
 const UserForm = (props) => {
 
     const error = useSelector(state => state.errors);
     const [errorMessage, setErrorMessage] = useState("");
+    const [isChecked, setIsChecked] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -26,20 +28,28 @@ const UserForm = (props) => {
         <>
 
             <Form onSubmit={props.handleSubmit(props.onSubmit)} size='large'>
-
                 <Segment>
+                    <Field name="user" component={renderInput} label='שם מלא' />
+                    <Field name="id" component={renderInput} label='תעודת זהות' />
                     <Field
                         name="email"
                         component={renderInput}
-                        label="E-mail address"
+                        label="מייל"
                     />
                     {errorMessage ? <Label className="alertMssg" basic color='red'>{errorMessage}</Label> : ""}
+                    <Field name="phone" component={renderInput} label='מספר נייד' />
                     <Field
                         name="password"
                         component={renderInput}
                         label="Password"
                     />
-                    <Button secondary fluid size='large'>
+                    <CheckboxLabel className="check">
+
+                        <input type="checkbox" checked={isChecked} onChange={() => setIsChecked(curr => !curr)} />
+                        <p>ידוע לי בלה בלה בלה</p>
+
+                    </CheckboxLabel>
+                    <Button style={{ borderRadius: "15px", fontSize: "18px", color: "white", background: "linear-gradient(271.11deg, #F89BA4 1.06%, #F4B8C2 99.2%)" }} fluid size='large'>
                         {props.buttonText}
                     </Button>
                 </Segment>
@@ -55,10 +65,10 @@ const renderInput = ({ input, label }) => {
 
     return (
 
-        <div className="field">
+        <div className="formInput">
             <div className="ui fluid left icon input">
-                <input {...input} autoComplete="off" placeholder={label} type={`${input.name === "email" ? "text" : "password"}`} />
-                <i aria-hidden="true" className={`${input.name === "email" ? "user" : "lock"} icon`}></i>
+                <input {...input} autoComplete="off" placeholder={label} type={`${input.name === "password" ? "password" : "text"}`} />
+                {/* <i aria-hidden="true" className={`${input.name === "email" ? "user" : "lock"} icon`}></i> */}
             </div>
         </div>
 

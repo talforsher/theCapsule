@@ -2,11 +2,12 @@ import React from 'react'
 import { Header, Message, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import capsule from "./capsule.svg"
-import splash from "./splash.svg"
-import welcome from "./welcome.png"
-import info from "./info.png"
-import privacy from "./privacy.png"
+import Register from '../Register';
+
+import splash from "./splash.svg";
+import welcome from "./welcome.png";
+import info from "./info.png";
+import privacy from "./privacy.png";
 
 
 export const Home = () => {
@@ -28,16 +29,16 @@ export const Home = () => {
 
     return (
         <div className="wrap">
-            <Message className="message-container" size="huge" secondary="true">
-                <img className="splash" src={splash} />
+            <img className="splash" src={splash} />
                 <img className="welcome" src={welcome} />
                 <img className="info" src={info} />
                 <img className="privacy" src={privacy} />
-                    {/* <Link to="/login">
+            <div className="register">
+                <Register />
+            </div>
+            {/* <Link to="/login">
                     {showLoginBtn()}
                 </Link> */}
-            </Message>
-
         </div>
     )
 };
