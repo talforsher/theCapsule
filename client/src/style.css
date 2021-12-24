@@ -1,3 +1,13 @@
+body{
+    background: #FBF3F3;
+}
+
+#root{
+    height: 100%;
+}
+
+.wrap{height: 100%;}
+
 /* NavBar Styling */
 .ui.menu:first-child {
     margin-top: 0;
@@ -6,6 +16,7 @@
 
 /* Jumbotron/Message styling */
 .ui.message.message-container {
+    height: 100%;
     text-align: center;
     padding: 0;
     box-shadow: unset;
@@ -26,15 +37,38 @@
     text-align: center;
 }
 
-.splash{
+.splash, .welcome, .info, .privacy{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
     animation-name: splash;
     animation-duration: 4s;
     animation-timing-function: ease;
     animation-iteration-count: 1;
 }
 
+.welcome{
+    transform: translate(-50%, -50%);
+    animation-delay: 3s;
+}
+
+.info{
+    transform: translate(-50%, -50%);
+    animation-delay: 6s;
+}
+
+.privacy{
+    transform: translate(-50%, -50%);
+    animation-delay: 6s;
+    animation-duration: 10s;
+}
+
 @keyframes splash {
-    0% {opacity: 0; transform: scale(0.9);}
-    30% {opacity: 0; transform: scale(0.9);}
-    100% {opacity: 1;}
+    0% {opacity: 0; transform: scale(0.97) translate(-50%, -50%);}
+    30% {opacity: 0; transform: scale(0.97) translate(-50%, -50%);}
+    90% {opacity: 1;}
+    100% {opacity: 0; transform: scale(0.97) translate(-50%, -50%);}
   }

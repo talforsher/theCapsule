@@ -2,7 +2,12 @@ import React from 'react'
 import { Header, Message, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import splash from "./Splash.svg"
+import capsule from "./capsule.svg"
+import splash from "./splash.svg"
+import welcome from "./welcome.png"
+import info from "./info.png"
+import privacy from "./privacy.png"
+
 
 export const Home = () => {
     // access to the isAuthenticated property from the auth reducer state
@@ -22,9 +27,12 @@ export const Home = () => {
     }
 
     return (
-        <div>
+        <div className="wrap">
             <Message className="message-container" size="huge" secondary="true">
                 <img className="splash" src={splash} />
+                <img className="welcome" src={welcome} />
+                <img className="info" src={info} />
+                <img className="privacy" src={privacy} />
                     {/* <Link to="/login">
                     {showLoginBtn()}
                 </Link> */}
