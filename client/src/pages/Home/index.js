@@ -24,7 +24,7 @@ export const Home = () => {
     return (
         <div>
             <Message className="message-container" size="huge" secondary="true">
-                <img src={splash} />
+                <img className="splash" src={splash} />
                     {/* <Link to="/login">
                     {showLoginBtn()}
                 </Link> */}
