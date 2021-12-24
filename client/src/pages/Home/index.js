@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Register from '../Register';
 
-import splash from "./splash.svg";
+import splash from "./SSplash.svg";
 import welcome from "./welcome.png";
 import info from "./info.png";
 import privacy from "./privacy.png";
